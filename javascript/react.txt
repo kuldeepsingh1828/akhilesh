@@ -1,0 +1,7 @@
+React creates an interface --> REACTDOM --> Virtual DOM
+
+Internally checks in the changes in the Virtual and Actual DOM
+
+Make changes to Actual using Virtual --> Optimized
+
+SPA --> Single Page Application

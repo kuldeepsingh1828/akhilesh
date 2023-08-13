@@ -1,0 +1,12 @@
+Javascript is Sync or Async ?
+
+Promise.
+pending
+fullfilled/Resolve
+rejected
+
+api(s)
+
+
+
+mongodb            <--->        nodejs     <--->        React 
