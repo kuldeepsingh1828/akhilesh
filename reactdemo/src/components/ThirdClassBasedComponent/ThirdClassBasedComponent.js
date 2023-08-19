@@ -11,10 +11,11 @@ class ThirdClassBasedComponent extends Component {
     render() {
         console.log("render");
         return (
-            <div style={{border:'1px solid red'}}>
+            <div style={{ border: '1px solid red' }}>
                 <h1>{this.state.name}</h1>
                 <button onClick={() => this.setState({ name: this.state.name.toUpperCase() })}>Change State</button>
-                <button onClick={() => this.props.setParagraph()}>Change Paragraph</button>
+                <button onClick={() => this.props.setParagraphUpper()}>Uppercase</button>
+                <button onClick={() => this.props.setParagraphLower()}>Lowercase</button>
             </div>
 
         )
@@ -23,6 +24,7 @@ class ThirdClassBasedComponent extends Component {
         console.log("componentDidMount")
     }
     componentDidUpdate() {
+        console.log(this.state)
         console.log("componentDidUpdate")
     }
     componentWillUnmount() {
@@ -38,7 +40,7 @@ export default class ThirdClassBasedComponentParent extends Component {
             show: true,
             s1: "s1 data",
             s2: "s2 data",
-            p:"lorem impsum sfdcgvhbjnmk,"
+            p: "LOREM IMPSUM SFDCGVHBJNMK,"
         }
     }
     render() {
@@ -48,7 +50,10 @@ export default class ThirdClassBasedComponentParent extends Component {
                     () => this.setState({ show: !this.state.show })
                 }> Toggle</button >
                 <p>{this.state.p}</p>
-                <div>{this.state.show && <ThirdClassBasedComponent setParagraph={()=>this.setState({p:this.state.p.toUpperCase()})} name={this.state.p} />}</div>
+                <div>{this.state.show && <ThirdClassBasedComponent
+                    setParagraphLower={() => this.setState(prev => ({ p: prev.p.toLowerCase() }))}
+                    setParagraphUpper={() => this.setState(prev => ({ p: prev.p.toUpperCase() }))}
+                    name={this.state.p} />}</div>
             </>
         )
     }
