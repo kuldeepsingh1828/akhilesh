@@ -8,6 +8,17 @@ class ThirdClassBasedComponent extends Component {
         }
         console.log("Constructor")
     }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log("getDerivedStateFromProps")
+        if (props.name !== state.name) {
+            return {
+                name: props.name
+            }
+        }
+        return null;
+    }
+
     render() {
         console.log("render");
         return (
@@ -24,7 +35,6 @@ class ThirdClassBasedComponent extends Component {
         console.log("componentDidMount")
     }
     componentDidUpdate() {
-        console.log(this.state)
         console.log("componentDidUpdate")
     }
     componentWillUnmount() {
