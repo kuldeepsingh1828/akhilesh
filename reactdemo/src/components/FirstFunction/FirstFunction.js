@@ -16,7 +16,7 @@ export default function FirstFunction() {
         console.log("rendered")
     });
 
-    //render
+    //componentDidUpdate
     useEffect(() => {
         console.log("componentDidUpdate")
     }, [state,state2]);
